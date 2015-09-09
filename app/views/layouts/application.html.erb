@@ -8,7 +8,18 @@
 </head>
 <body>
   <div class="container">
-  <%=render 'layouts/nav'%>
+    <%= render 'layouts/nav' %>  <!--navbar-->
+
+      <% if flash[:notice] %> <!-- Show flash message hash w/ bootstrap styling-->
+        <div class="alert alert-success" role="alert">
+          <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <%= flash[:notice]%>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <%= flash[:alert] %>
+        </div>
+      <% end %>
+
     <%= yield %>
   </div>
 

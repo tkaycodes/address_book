@@ -2,11 +2,11 @@
   <div class="container-fluid">
 
   <ul class="nav navbar-nav">
+    <!-- <li> -->
+      <%#=link_to "My Address Book", root_path%>
+    <!-- </li> -->
     <li>
-      <%=link_to "My Address Book", root_path%>
-    </li>
-    <li>
-      <%=link_to "Add Contact", new_contact_path, class: "btn btn-default"%>
+      <%= link_to "Add Contact", new_contact_path %>
     </li>
 
   </ul>

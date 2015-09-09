@@ -1,13 +1,23 @@
+<!-- Display Errors -->
+<% if @contact.errors.any? %>
+  <ul>
+    <% @contact.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <h3 style="font-weight:200">Create New Contact</h3>
 
-<%=form_for @contact do |c|%>
-  <%=c.label :first_name%>
-  <%=c.text_field :first_name, class: "form-control"%>
-  <%=c.label :last_name%>
-  <%=c.text_field :last_name, class: "form-control"%>
-  <%=c.label :email%>
-  <%=c.email_field :email, class: "form-control"%>
-  <%=c.label :phone_number%>
-  <%=c.text_field :phone_number, class: "form-control"%><hr>
-  <%=c.submit class: "btn btn-default"%>
-<%end%>
+<!-- Form for New Contact -->
+<%= form_for @contact do |c| %>
+  <%= c.label :first_name %>
+  <%= c.text_field :first_name, class: "form-control" %>
+  <%= c.label :last_name %>
+  <%= c.text_field :last_name, class: "form-control" %>
+  <%= c.label :email %>
+  <%= c.email_field :email, class: "form-control" %>
+  <%= c.label :phone_number %>
+  <%= c.text_field :phone_number, class: "form-control" %><hr>
+  <%= c.submit class: "btn btn-default" %>
+<% end %>
