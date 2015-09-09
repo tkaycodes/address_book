@@ -6,4 +6,8 @@ class ContactsController < ApplicationController
     @contact = Contact.new
   end
 
+  def create
+    render text: params
+  end
+
 end
