@@ -1,0 +1,11 @@
+<h3 style="font-weight:200">Create New Contact</h3>
+
+<%=form_for @contact do |c|%>
+  <%=c.label :name%>
+  <%=c.text_field :name, class: "form-control"%>
+  <%=c.label :email%>
+  <%=c.text_field :email, class: "form-control"%>
+  <%=c.label :phone_number%>
+  <%=c.text_field :phone_number, class: "form-control"%><hr>
+  <%=c.submit class: "btn btn-default"%>
+<%end%>
