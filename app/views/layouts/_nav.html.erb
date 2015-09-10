@@ -2,23 +2,28 @@
   <div class="container-fluid">
 
   <ul class="nav navbar-nav">
-    <!-- <li> -->
-      <%#=link_to "My Address Book", root_path%>
-    <!-- </li> -->
     <li>
       <%= link_to "Add Contact", new_contact_path %>
     </li>
 
   </ul>
   <ul class="nav navbar-nav navbar-right">
-    <li>
-      <%#if user_logged_in?%>
-        <%#=link_to "Logged in as:#{User.find(session[:user_id]).email}", ""%>
-    </li>
-    <li>
-        <%#=link_to "Logout", '/logout'%>
-      <%#end%>
-    </li>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to "Signed in as:#{current_user.email}",
+        "javascript:void(0)" %>
+      </li>
+      <li>
+        <%= link_to "Sign Out", destroy_user_session_path, method: "delete" %>
+      </li>
+    <% else %>
+      <li>
+      <%= link_to "Login", new_user_session_path %>
+      </li>
+      <li>
+        <%=link_to "Sign Up", new_user_registration_path%>
+      </li>
+    <% end %>
   </ul> 
 
   </div>
