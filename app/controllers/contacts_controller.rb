@@ -11,6 +11,7 @@ class ContactsController < ApplicationController
   def create
     # render text: params
     @contact = Contact.new(contact_params)
+    @contact.user=current_user
     if @contact.save
       redirect_to root_path, notice: "Contact Created"
     else
