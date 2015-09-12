@@ -22,11 +22,15 @@ describe Contact do
   end
 
   it "is has unique combination of first_name and last_name" do
-    contact1=FactoryGirl.create(:contact)
-    contact2=FactoryGirl.build(:contact, first_name: contact1.first_name, last_name: contact1.last_name)
-    # puts "contact 1: #{contact1.inspect}, contact2: #{contact2.inspect}"
+    contact1 = FactoryGirl.create(:contact)
+    contact2 = FactoryGirl.build(:contact, first_name: contact1.first_name, last_name: contact1.last_name)
     expect(contact1).to be_valid
     expect(contact2).not_to be_valid
+  end
+
+  it "strips phone number" do 
+    contact = FactoryGirl.create(:contact, phone_number: "(605) 343.32424-3424")
+    expect(contact.phone_number).to eq("605343324243424")
   end
   
 end
