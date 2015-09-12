@@ -3,20 +3,22 @@ Rails.application.routes.draw do
   # API Routes
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-      resources :contacts, only: [:index, :create, :update, :destroy]
-      resources :users, only: [] do 
-        resources :contacts, only: [:index]
-      end
+
+      resources :users, only: [:index, :create, :show, :update, :destroy]
+      
+      # list all contacts for a particular user
+      get '/users/:id/contacts' => 'users#index', as: :user_contacts
+
     end
   end
 
-  # SHOW!!!
 
   # Devise User Routess
   devise_for :users
 
-  resources :contacts
 
+  # Contact Routes
+  resources :contacts, only: [:index, :new, :create]
 
   root "contacts#index"
 
