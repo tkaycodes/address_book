@@ -1,0 +1,81 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/Tabish/Desktop/address_book/app/models/user.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/Tabish/Desktop/address_book/app/helpers/api/v1/contacts_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Tabish/Desktop/address_book/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Tabish/Desktop/address_book/app/helpers/contacts_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Tabish/Desktop/address_book/app/controllers/contacts_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/Tabish/Desktop/address_book/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/Tabish/Desktop/address_book/app/models/contact.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1442018498
+  }
+}
