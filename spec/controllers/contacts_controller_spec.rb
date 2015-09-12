@@ -22,9 +22,8 @@ describe ContactsController do
 
   describe "GET NEW" do 
     it "assigns @contact" do 
-      contact = FactoryGirl.create(:contact)
       get :new
-      expect(assigns(:contact)).to eq([contact])
+      expect(assigns(:contact)).to be_a_new(Contact)
     end
     it "should GET new action" do 
       get :new
@@ -32,12 +31,20 @@ describe ContactsController do
     end
   end
 
-  describe "POST CREATE" do 
-    it "assigns @contact" do 
-      contact = FactoryGirl.create(:contact)
-      post :create, contact: FactoryGirl.attributes_for(:contact)
-      expect(assigns(:contact)).to eq([contact])
-    end
+  describe "POST CREATE" do
+      it "assigns @contact" do 
+        post :create, contact: FactoryGirl.attributes_for(:contact)
+        contact = Contact.last
+        expect(assigns(:contact)).to eq(contact)
+      end
+      it "redirect to root_path after create" do 
+        post :create, contact: FactoryGirl.attributes_for(:contact)
+        expect(response).to redirect_to(root_path)
+      end
+      it "displays flash message after create" do 
+        post :create, contact: FactoryGirl.attributes_for(:contact)
+        expect(flash[:notice]).to be_present
+      end
   end
 
 
