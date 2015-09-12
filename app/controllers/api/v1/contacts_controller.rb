@@ -5,7 +5,7 @@ class Api::V1::ContactsController < ApplicationController
     if params[:user_id].present?
       user = User.find_by_id(params[:user_id])
       if user
-        @user_contacts = user.contacts.all
+        @user_contacts = user.contacts
         render json: @user_contacts
       else
         render json: {error: "Sorry, couldnt find User with that ID"}

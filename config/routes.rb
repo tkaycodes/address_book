@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  # SHOW!!!
+
   # Devise User Routess
   devise_for :users
 
