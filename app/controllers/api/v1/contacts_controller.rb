@@ -2,8 +2,18 @@ class Api::V1::ContactsController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-    @contacts=Contact.all
-    render json: @contacts
+    if params[:user_id].present?
+      user = User.find_by_id(params[:user_id])
+      if user
+        @user_contacts = user.contacts.all
+        render json: @user_contacts
+      else
+        render json: {error: "Sorry, couldnt find User with that ID"}
+      end
+    else
+      contacts = Contact.all
+      render json: contacts.to_json
+    end
   end
 
   def create
@@ -45,7 +55,7 @@ class Api::V1::ContactsController < ApplicationController
 
   private
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :email, :phone_number)
+    params.require(:contact).permit(:first_name, :last_name, :email, :phone_number, :user_id)
   end
 
 end

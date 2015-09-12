@@ -20,12 +20,16 @@ describe ContactsController do
       get :new
       expect(assigns(:contact)).to eq([contact])
     end
+    it "should GET new action" do 
+      get :new
+      expect(response).to render_template("new")
+    end
   end
 
   describe "POST CREATE" do 
     it "assigns @contact" do 
       contact = FactoryGirl.create(:contact)
-      post :create
+      post :create, contact: contact;
       expect(assigns(:contact)).to eq([contact])
     end
   end
